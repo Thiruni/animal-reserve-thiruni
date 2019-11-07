@@ -1,0 +1,106 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "c19c8a93-516f-428c-a57f-72d8cfdbc4c1": {
+        "id": "c19c8a93-516f-428c-a57f-72d8cfdbc4c1",
+        "parent": null,
+        "name": "animal-reserve-thiruni",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "01344977-5156-40da-84cf-4e8cd3a20c67"
+        ],
+        "isRemovable": false,
+        "filePath": "animal-reserve-thiruni"
+      },
+      "01344977-5156-40da-84cf-4e8cd3a20c67": {
+        "id": "01344977-5156-40da-84cf-4e8cd3a20c67",
+        "parent": "c19c8a93-516f-428c-a57f-72d8cfdbc4c1",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "animal-reserve-thiruni/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    console.log(JSON.stringify(event, null,2));\n    callback(null, {\"message\": \"Successfully executed\"});\n\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "s3tdAnimalStorage",
+            "config": {
+              "type": "s3:ObjectCreated:Post",
+              "keyPrefix": "",
+              "keySuffix": ""
+            }
+          }
+        ],
+        "testCases": {
+          "3a6ebad9-7460-4e0a-a9c2-c8032705ecf9": {
+            "id": "3a6ebad9-7460-4e0a-a9c2-c8032705ecf9",
+            "name": "testEvent",
+            "functionId": "01344977-5156-40da-84cf-4e8cd3a20c67",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "c19c8a93-516f-428c-a57f-72d8cfdbc4c1",
+    "openFiles": [
+      "01344977-5156-40da-84cf-4e8cd3a20c67"
+    ],
+    "currentFileId": "01344977-5156-40da-84cf-4e8cd3a20c67",
+    "resources": {
+      "s3tdAnimalStorage": {
+        "name": "s3tdAnimalStorage",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "td-animal-storage"
+          }
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "animal-reserve-thiruni",
+    "projectDescription": "detect and record safari animals",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1573109414530
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "animal-reserve-thiruni",
+      "url": "https://github.com/Thiruni/animal-reserve-thiruni"
+    }
+  }
+}
